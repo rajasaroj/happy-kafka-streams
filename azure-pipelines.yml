@@ -40,7 +40,7 @@ stages:
             git fetch repoGithub master
             git reset --hard repoGithub/master
             git pull --rebase repoGithub master
-            MY_PAT=msy5swpwewvdhbxmh43gbdtgzdscys5pkwfgg6c2ei7drw7hv6iq
+            MY_PAT=dgmktv4fyxyivyds6dq5dtcpiv6g43owfgvkgncdpbk72vwi22gq
             B64_PAT=$(printf ":%s" "$MY_PAT" | base64)
             echo "B64 = ${B64_PAT}"
             echo "MY_PAT = ${MY_PAT}"
