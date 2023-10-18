@@ -48,8 +48,8 @@ public class FilterMessageStreamHandler {
         StreamsBuilder builder = new StreamsBuilder();
 
         KStream<String, String> xmlStream = builder.stream(inputTopicName, Consumed.with(Serdes.String(), Serdes.String()));
-        KStream<String, String> filteredStream = xmlStream.mapValues(FilterUtils::extractModuleFromXmlMessage);
-        filteredStream.to((key, value, recordContext) -> value, Produced.with(Serdes.String(), Serdes.String()));
+        //KStream<String, String> filteredStream = xmlStream.mapValues(FilterUtils::extractModuleFromXmlMessage);
+        xmlStream.to((key, value, recordContext) -> FilterUtils.extractModuleFromXmlMessage(value), Produced.with(Serdes.String(), Serdes.String()));
 
 
         Topology topology = builder.build();
