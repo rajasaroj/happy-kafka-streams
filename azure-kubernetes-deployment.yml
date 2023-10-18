@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: az-raga-kafka-streams-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: etm-kafka-streams
+  template:
+    metadata:
+      labels:
+        app: etm-kafka-streams
+    spec:
+      containers:
+      - name: ragaetmdemo
+        image: ragaetmdemo.azurecr.io/happykafkapoc:etm-kafka-streams-47
+      imagePullSecrets:
+      - name: acr-secret
